@@ -5,6 +5,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import com.aws.codestar.projecttemplates.configuration.MvcConfig;
 
 /**
+ * master commit 1
+ * 
  * Utility to initialize the Spring MVC HelloWorld application.
  */
 public class HelloWorldAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
