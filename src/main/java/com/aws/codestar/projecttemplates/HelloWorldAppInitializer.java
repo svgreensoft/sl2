@@ -16,6 +16,9 @@ public class HelloWorldAppInitializer extends AbstractAnnotationConfigDispatcher
         };
     }
 
+    /**
+     * 
+     */
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return null;
