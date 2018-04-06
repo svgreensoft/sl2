@@ -1,0 +1,226 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="sversh (generated)" id="1518621321863-1">
+        <createTable tableName="intake">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="datetime" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="substance_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity_unit_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-2">
+        <createTable tableName="measure_unit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-3">
+        <createTable tableName="pressure">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="group" type="BIGINT"/>
+            <column name="time" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sys" type="INT"/>
+            <column name="dia" type="INT"/>
+            <column name="pulse" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-4">
+        <createTable tableName="substance">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="group_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-5">
+        <createTable tableName="substance_group">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-6">
+        <createTable tableName="substance_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-7">
+        <createTable tableName="training">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="training_type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datetime" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="distance" type="BIGINT"/>
+            <column name="distance_unit_id" type="BIGINT"/>
+            <column name="pulse" type="INT"/>
+            <column name="cal" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-8">
+        <createTable tableName="training_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-9">
+        <createTable tableName="treatment">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datetime" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-10">
+        <createTable tableName="treatment_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-11">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="intake"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-12">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="measure_unit"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-13">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="pressure"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-14">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="substance"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-15">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="substance_group"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-16">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="substance_type"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-17">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="training"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-18">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="training_type"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-19">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="treatment"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-20">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="treatment_type"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-21">
+        <createIndex indexName="distance_unit_id_measure_unit_idx" tableName="training">
+            <column name="distance_unit_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-22">
+        <createIndex indexName="group_type_idx" tableName="substance_group">
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-23">
+        <createIndex indexName="quantity_unit_id_measure_idx" tableName="intake">
+            <column name="quantity_unit_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-24">
+        <createIndex indexName="substance_group_idx" tableName="substance">
+            <column name="group_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-25">
+        <createIndex indexName="substance_id_idx" tableName="intake">
+            <column name="substance_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-26">
+        <createIndex indexName="training_type_idx" tableName="training">
+            <column name="training_type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-27">
+        <createIndex indexName="treatment_type_idx" tableName="treatment">
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-28">
+        <addForeignKeyConstraint baseColumnNames="distance_unit_id" baseTableName="training" constraintName="distance_unit_id_measure_unit" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="measure_unit"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-29">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="substance_group" constraintName="group_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="substance_type"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-30">
+        <addForeignKeyConstraint baseColumnNames="quantity_unit_id" baseTableName="intake" constraintName="quantity_unit_id_measure" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="measure_unit"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-31">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="substance" constraintName="substance_group" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="substance_group"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-32">
+        <addForeignKeyConstraint baseColumnNames="substance_id" baseTableName="intake" constraintName="substance_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="substance"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-33">
+        <addForeignKeyConstraint baseColumnNames="training_type_id" baseTableName="training" constraintName="training_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="treatment_type"/>
+    </changeSet>
+    <changeSet author="sversh (generated)" id="1518621321863-34">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="treatment" constraintName="treatment_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="treatment_type"/>
+    </changeSet>
+</databaseChangeLog>
